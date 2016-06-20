@@ -55,7 +55,6 @@ void loop()
       data[1] = Wire.read();
       data[2] = Wire.read();
       data[3] = Wire.read();
-      delay(300);
     }
     // Convert the data
     xMag = ((data[1] * 256) + data[0]);
@@ -71,6 +70,7 @@ void loop()
     
     // Output data to dashboard
     Particle.publish("Magnetic field in X-Axis : ", String(xMag));
+    delay(1000);
     Particle.publish("Magnetic field in Y-Axis : ", String(yMag));
     delay(1000); 
 }
