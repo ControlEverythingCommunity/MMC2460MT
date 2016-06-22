@@ -29,9 +29,10 @@ void main()
     config[0] = 0x07;
     config[1] = 0x23;
     write(file, config, 2);
+    sleep(0.5);
     
-    // Read 6 bytes of data
-    // xMag lsb, xMag msb, yMag lsb, yMag msb, zMag lsb, zMag msb
+    // Read 4 bytes of data
+    // xMag lsb, xMag msb, yMag lsb, yMag msb
     char reg[1] = {0x00};
     write(file, reg, 1);
     char data[4] = {0};
@@ -47,7 +48,7 @@ void main()
 		{
 			xMag -= 65536;
 		}
-		int yMag = ((data[3] * 256) + data[2]);
+	int yMag = ((data[3] * 256) + data[2]);
 		if (yMag > 32767)
 		{
 			yMag -= 65536;
