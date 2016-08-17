@@ -14,7 +14,7 @@ i2c = onionI2C.OnionI2C()
 # Select Control register, 0x07(7)
 #		0x23(35)	Initiate measurement, Continous mode ON, Frequency 1.5Hz
 #					No Boost, SET done, No RESET, No Refill Cap
-i2c.writeByte0x30, 0x07, 0x23)
+i2c.writeByte(0x30, 0x07, 0x23)
 
 time.sleep(0.5)
 
